@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html>
+<head>
+
+  <meta charset="UTF-8">
+  <title>Fix Unable to locate package linux-headers-4.0.0-kali1-amd64 on kali 2.0</title>
+  <meta name="viewport" content="width=device-width">
+
+  <!--[if lt IE 9]>
+    <script src="http://html5shiv.googlecode.com/svn/trunk/html5.js"></script>
+  <![endif]-->
+
+  <link href="/assets/css/style.css" rel="stylesheet" />
+  <link href="/assets/css/colors-dark.css" rel="stylesheet" />
+  <link rel="icon" type="image/png" href="/images/favicon.png">
+
+</head>
+
+<body>
+
+
+
+  <header id="header">
+    <h1><a href="/">blog.najashark.net</a></h1>
+    <p>post-it notes</p>
+  </header>
+
+
+
+  <div id="page">
+
+
+
+    <div id="sidebar">
+      <nav>
+        <ul>
+		  <img class="home-logo" src="/images/favicon.png" alt="logo">
+          <li><a href="/">Home</a></li>
+          <li><a href="/archives">Archive</a></li>
+          <li><a href="/about">About</a></li>
+          <li><a href="http://twitter.com/najashark">Twitter</a></li>
+          <li><a href="/feed.xml">RSS Feed</a></li>
+        </ul>
+      </nav>
+    </div>
+
+
+
+    <div id="content">
+      <article class="post">
+
+	
+		<h1><a href="/2015/08/14/fix-unable-to-locate-package-linux/">Fix Unable to locate package linux-headers-4.0.0-kali1-amd64 on kali 2.0</a></h1>
+	
+
+	<div class="post-content">After installing Kali on hard disk, i stumbled upon a problem when installing nvidia driver<br /><br />when I try command<br /><br /><span style="font-family: &quot;Courier New&quot;,Courier,monospace;"><span class="kw2">apt-get install</span> <span class="re5">-y</span> linux-headers-$<span class="br0">(</span><span class="kw2">uname</span> -r<span class="br0">)</span></span><br /><br /><span class="br0">it shows package not found</span><br /><br /><span style="font-family: &quot;Courier New&quot;,Courier,monospace;">E: Unable to locate package linux-headers-4.0.0-kali1-amd64</span><br /><br />this problem persist because I have opt out to install from network mirror. So you need to update your /etc/apt/sources.list<br /><br />i found solution when reading this <a href="https://www.offensive-security.com/kali-linux/top-10-post-install-tips/">post install tips</a><br /><br /><blockquote class="tr_bq">If for some reason you chose “<b>no</b>” when asked “<b>use a network mirror</b>” during your Kali installation, you may be missing some entries in your <b>sources.list</b> file. If this is the case, check the <a href="http://docs.kali.org/general-use/kali-linux-sources-list-repositories" rel="nofollow" target="_blank">official repository list</a> for the entries that should be in that file. Despite what many  unofficial guides instruct you to do, avoid adding extra repositories to  your sources.list file. <b>Don’t add kali-dev, kali-rolling, or any other Kali repositories</b> unless you have a specific reason to – which usually, you won’t. If you  *must* add additional repositories, drop a new sources file in <b>/etc/apt/sources.list.d/</b> instead.</blockquote><span style="font-family: inherit;">make sure the lines is in your sources<span style="font-family: inherit;">.lisr</span></span><br /><br /><span style="font-family: &quot;Courier New&quot;,Courier,monospace;">deb-src http:<span class="sy0">//</span>http.kali.org<span class="sy0">/</span>kali sana main non-free contrib<br />deb-src http:<span class="sy0">//</span>security.kali.org<span class="sy0">/</span>kali-security sana<span class="sy0">/</span>updates main contrib non-free</span><br /><span style="font-family: &quot;Courier New&quot;,Courier,monospace;">deb http:<span class="sy0">//</span>http.kali.org<span class="sy0">/</span>kali sana main non-free contrib<br />deb http:<span class="sy0">//</span>security.kali.org<span class="sy0">/</span>kali-security sana<span class="sy0">/</span>updates main contrib non-free&nbsp;</span> <br /><br /><span style="font-family: inherit;">then update your repository</span><br /><br /><span style="font-family: &quot;Courier New&quot;,Courier,monospace;">apt-get update</span><br /><span style="font-family: &quot;Courier New&quot;,Courier,monospace;">apt-get dist-upgrade</span><br /><span style="font-family: inherit;"><br /></span><span style="font-family: inherit;"><span style="font-family: inherit;">now you can install back anything you need.</span> </span><br /><span style="font-family: inherit;"><span style="font-family: inherit;">&nbsp;</span> </span></div>
+
+	<p class="meta">Posted on <span class="postdate">Aug 14, 2015</span></p>
+
+</article>
+    </div>
+
+
+
+  </div>
+
+
+
+  <footer id="footer">
+    <p class="copyright">Copyright &copy; 2018 blog.najashark.net. Powered by <a href="http://jekyllrb.com">Jekyll</a>, theme by <a href="http://www.webmaster-source.com">Matt Harzewski</a></p>
+  </footer>
+
+
+
+  <script src="//ajax.googleapis.com/ajax/libs/jquery/1.10.1/jquery.min.js"></script>
+  <script src="/assets/js/jquery.mobilemenu.min.js"></script>
+
+  <script>
+    $(document).ready(function(){
+      $('#sidebar nav ul').mobileMenu({'topOptionText': 'Menu', 'prependTo': '#sidebar nav'});
+    });
+  </script>
+
+
+
+</body>
+</html>

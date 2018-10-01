@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html>
+<head>
+
+  <meta charset="UTF-8">
+  <title>blog.najashark.net</title>
+  <meta name="viewport" content="width=device-width">
+
+  <!--[if lt IE 9]>
+    <script src="http://html5shiv.googlecode.com/svn/trunk/html5.js"></script>
+  <![endif]-->
+
+  <link href="/assets/css/style.css" rel="stylesheet" />
+  <link href="/assets/css/colors-dark.css" rel="stylesheet" />
+  <link rel="icon" type="image/png" href="/images/favicon.png">
+
+</head>
+
+<body>
+
+
+
+  <header id="header">
+    <h1><a href="/">blog.najashark.net</a></h1>
+    <p>post-it notes</p>
+  </header>
+
+
+
+  <div id="page">
+
+
+
+    <div id="sidebar">
+      <nav>
+        <ul>
+		  <img class="home-logo" src="/images/favicon.png" alt="logo">
+          <li><a href="/">Home</a></li>
+          <li><a href="/archives">Archive</a></li>
+          <li><a href="/about">About</a></li>
+          <li><a href="http://twitter.com/najashark">Twitter</a></li>
+          <li><a href="/feed.xml">RSS Feed</a></li>
+        </ul>
+      </nav>
+    </div>
+
+
+
+    <div id="content">
+      
+
+	<article class="post">
+
+		
+			<h1><a href="/2014/07/24/solving-server-reached-maxclients/">Solving server reached MaxClients setting, consider raising the MaxClients setting</a></h1>
+		
+
+		<div class="post-content">Solving server reached MaxClients setting, consider raising the MaxClients setting<br /><br />Server version: Apache/2.2.22 (Ubuntu)<br />Server built:&nbsp;&nbsp; Jul 22 2014 14:37:02<br /><span style="font-size: x-small;"><span style="font-family: &quot;Courier New&quot;,Courier,monospace;"><br /></span></span><br /><ul><li>grep the error log</li></ul><span style="font-family: &quot;Courier New&quot;,Courier,monospace; font-size: small;">grep -i maxclient /var/log/apache2/error.log</span><br /><span style="font-family: &quot;Courier New&quot;,Courier,monospace; font-size: small;"><br />rut@rez:# grep -i maxclient /var/log/apache2/error.log<br />[Sun Jul 20 08:51:08 2014] [error] server reached MaxClients setting, consider raising the MaxClients setting</span><br /><br /><ul><li><span style="font-size: small;">find apache2 binary PATH</span></li></ul><span style="font-family: &quot;Courier New&quot;,Courier,monospace; font-size: small;">rut@rez:/etc/apache2# ps -ef | grep apache<br />rut&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 2089&nbsp;&nbsp;&nbsp;&nbsp; 1&nbsp; 0 01:52 ?&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 00:00:00 /usr/sbin/apache2 -k start<br />www-data&nbsp; 2118&nbsp; 2089&nbsp; 0 01:53 ?&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 00:00:00 /usr/sbin/apache2 -k start<br />www-data&nbsp; 2143&nbsp; 2089&nbsp; 0 01:54 ?&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 00:00:00 /usr/sbin/apache2 -k start<br />www-data&nbsp; 2144&nbsp; 2089&nbsp; 0 01:55 ?&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 00:00:00 /usr/sbin/apache2 -k start<br />www-data&nbsp; 2145&nbsp; 2089&nbsp; 0 01:55 ?&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 00:00:00 /usr/sbin/apache2 -k start<br />www-data&nbsp; 2146&nbsp; 2089&nbsp; 0 01:55 ?&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 00:00:00 /usr/sbin/apache2 -k start<br />rut&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 2201&nbsp; 1516&nbsp; 0 01:59 pts/5&nbsp;&nbsp;&nbsp; 00:00:00 grep --color=auto apache</span><br /><br /><ul><li><span style="font-size: small;"><span style="font-family: inherit;">find the apache2 path configuration</span></span></li></ul><br /><span style="font-family: &quot;Courier New&quot;,Courier,monospace; font-size: small;">rut@rez:/etc/apache2# /usr/sbin/apache2 -V | grep SERVER_CONFIG_FILE<br />&nbsp;-D SERVER_CONFIG_FILE="apache2.conf"<br /><br />rut@rez:/etc/apache2# /usr/sbin/apache2 -V | grep HTTPD_ROOT<br />&nbsp;-D HTTPD_ROOT="/etc/apache2"</span><br /><span style="font-family: &quot;Courier New&quot;,Courier,monospace; font-size: small;"></span><br /><ul><li><span style="font-family: inherit; font-size: small;"><span style="font-family: inherit;">edit file like in the picture increasing the MaxClients to 1024 or any number you like</span></span></li></ul><span style="font-family: &quot;Courier New&quot;,Courier,monospace; font-size: small;"><span style="font-family: inherit;">&nbsp;</span><br />rut@rez:/etc/apache2# nano /etc/apache2/apache2.conf</span><br /><div class="separator" style="clear: both; text-align: center;"><a href="http://3.bp.blogspot.com/-rJTEC6q973U/U9Cjkk_xvBI/AAAAAAAAB9Q/D-0HjODcpZ4/s1600/Capture.PNG" imageanchor="1" style="margin-left: 1em; margin-right: 1em;"><img border="0" src="http://3.bp.blogspot.com/-rJTEC6q973U/U9Cjkk_xvBI/AAAAAAAAB9Q/D-0HjODcpZ4/s1600/Capture.PNG" height="287" width="400" /></a></div><span style="font-family: &quot;Courier New&quot;,Courier,monospace; font-size: small;"></span><br /><span style="font-family: &quot;Courier New&quot;,Courier,monospace; font-size: small;"><br />service apache2 restart</span></div>
+
+	</article>
+
+
+
+	<article class="post">
+
+		
+			<h1><a href="/2011/09/12/membaiki-iso-imej-yang-rosak/">Membaiki *.iso imej yang rosak menggunakan torrent</a></h1>
+		
+
+		<div class="post-content">Bagi peminat distro linux pasti mengetahui kadang-kadang saiz sesuatu *.iso sangatlah besar,sehingga ada distro yg mencapai saiz 4.4GB++ . Biasanya kita selalu memuat turun sesuatu distro tersebut secara terus dari server. Ada kemungkinan untuk iso tersebut rosak jika semasa proses memuat turun terdapat gangguan. Perkara pertama selepas memuat turun sesuatu iso sebelum membakar (burn) iso tersebut ke dalam cd/dvd ialah dengan memeriksa md5 iso tersebut.<br /><br />saya ambil contoh distro <a href="http://www.backtrack-linux.org/downloads/">Backtrack 5 R1</a><br /><br /><blockquote><table><tbody><tr><td style="width: 100px;">Name: </td><td><span id="name_field">BT5R1-GNOME-32.iso</span></td></tr><tr><td style="width: 100px;">Size: </td><td><span id="size_field">1998</span></td></tr><tr><td style="width: 100px;">Flavor: </td><td><span id="wm_field">GNOME</span></td></tr><tr><td style="width: 100px;">Arch: </td><td><span id="architecture_field">32</span></td></tr><tr><td style="width: 100px;">Image: </td><td><span id="image_type_field">ISO</span> </td></tr><tr><td style="width: 100px;">Download: </td><td><span id="download_type_field">Direct</span> </td></tr><tr><td style="width: 100px;">MD5: </td><td><span id="md5_field">49f3dda1e617cb6f4045735766839690</span></td></tr></tbody></table><br style="clear: both;" /></blockquote>cara untuk check md5 iso backtrack dgn menggunakan command<br /><div style="color: red; font-family: &quot;Courier New&quot;,Courier,monospace;">md5sum <span id="name_field">BT5R1-GNOME-32.iso</span></div><br /><span id="name_field">kemudian bandingkan dgn md5 yang dia bagi kat website,kalau sama,maknanya iso tu tak rosak,kalau berbeza kita boleh baiki tanpa perlu memuat turun semula</span><br /><span id="name_field"> </span><br /><span id="name_field">cara untuk membaiki iso yang rosak (corrupt)</span><br /><span id="name_field">1. Pastikan perisian torrent client dipasang,saya menggunakan transmission</span><br /><span id="name_field">2. Muat turun file .torrent di website mengikut contoh,saya perlu memuat turun fail </span><span id="name_field">BT5r1-GNOME-32.torrent</span><br /><span id="name_field">3. kemudian start torrent file tersebut lebih kurang 1 minit dan stop.</span><br /><span id="name_field">4. salin (copy) iso yang rosak tadi ke dalam folder save file tadi,kemudian replace fail yang sedia ada.</span><br /><span id="name_field">5. masuk semula transmission kemudian start semula torrent.</span><br /><span id="name_field"><span style="font-size: x-small;"><i>torrent client akan memeriksa bahagian yang rosak dan akan memuat turun hanya bahagian yang rosak sahaja.</i></span></span><br /><br /><span id="name_field"><span style="font-size: x-small;"><span style="font-size: small;">6.sila tunggu hingga selesai dan boleh periksa semula md5 fail iso tersebut</span><i>&nbsp;</i></span></span><br /><span id="name_field"><span style="font-size: x-small;"><i>&nbsp;</i></span></span><span id="name_field"><span style="font-size: x-small;"><i>&nbsp;</i></span></span><br /><span id="name_field"><span style="font-size: x-small;"><i>p/s:buat rugi je download balik.repair je senang.</i></span></span></div>
+
+	</article>
+
+
+
+
+
+
+	<div class="postnavigation">
+
+		
+			
+				<a class="prev left" href="/page3/">&larr; Newer</a>
+			
+		
+
+		<span class="pages">Page 4 of 4</span>
+
+		
+			<span class="nope right">Older &rarr;</span>
+		
+
+	</div>
+
+    </div>
+
+
+
+  </div>
+
+
+
+  <footer id="footer">
+    <p class="copyright">Copyright &copy; 2018 blog.najashark.net. Powered by <a href="http://jekyllrb.com">Jekyll</a>, theme by <a href="http://www.webmaster-source.com">Matt Harzewski</a></p>
+  </footer>
+
+
+
+  <script src="//ajax.googleapis.com/ajax/libs/jquery/1.10.1/jquery.min.js"></script>
+  <script src="/assets/js/jquery.mobilemenu.min.js"></script>
+
+  <script>
+    $(document).ready(function(){
+      $('#sidebar nav ul').mobileMenu({'topOptionText': 'Menu', 'prependTo': '#sidebar nav'});
+    });
+  </script>
+
+
+
+</body>
+</html>

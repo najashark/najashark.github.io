@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html>
+<head>
+
+  <meta charset="UTF-8">
+  <title>Wargames.my 2015 Challenge5 Sikit-sikit lama-lama jadi bukit</title>
+  <meta name="viewport" content="width=device-width">
+
+  <!--[if lt IE 9]>
+    <script src="http://html5shiv.googlecode.com/svn/trunk/html5.js"></script>
+  <![endif]-->
+
+  <link href="/assets/css/style.css" rel="stylesheet" />
+  <link href="/assets/css/colors-dark.css" rel="stylesheet" />
+  <link rel="icon" type="image/png" href="/images/favicon.png">
+
+</head>
+
+<body>
+
+
+
+  <header id="header">
+    <h1><a href="/">blog.najashark.net</a></h1>
+    <p>post-it notes</p>
+  </header>
+
+
+
+  <div id="page">
+
+
+
+    <div id="sidebar">
+      <nav>
+        <ul>
+		  <img class="home-logo" src="/images/favicon.png" alt="logo">
+          <li><a href="/">Home</a></li>
+          <li><a href="/archives">Archive</a></li>
+          <li><a href="/about">About</a></li>
+          <li><a href="http://twitter.com/najashark">Twitter</a></li>
+          <li><a href="/feed.xml">RSS Feed</a></li>
+        </ul>
+      </nav>
+    </div>
+
+
+
+    <div id="content">
+      <article class="post">
+
+	
+		<h1><a href="/2015/05/25/wargamesmy-2015-challenge5-sikit-sikit/">Wargames.my 2015 Challenge5 Sikit-sikit lama-lama jadi bukit</a></h1>
+	
+
+	<div class="post-content">On this wargames.my 2015, our team managed to settled only 2 challenged because we were busy with our final exam, no brain left to commit to the competition.<br><br>so lets go with the challenge<br>the hint given is some C&amp;C server address which is <i>blablayadaaofeiwnfvocwvonwec.wargames.my</i><br><br>so we open sinkholed_traffic.pcapng with wireshark and filter the address<br>after a while we managed to find something useful in http header which is<br><span style="font-family: &quot;Courier New&quot;,Courier,monospace;">"wefwavwef="</span><br><br>I am no master in programming, so I utilize the linux tools and shell<br>here the summary of if<br><div class="separator" style="clear: both; text-align: center;"></div><br><div class="separator" style="clear: both; text-align: center;"><a href="http://2.bp.blogspot.com/-FiELT5jQ9lg/VWLyR-3IXXI/AAAAAAAAEqc/I4ayv8jfHYg/s1600/sinkholedpoc.png" imageanchor="1" style="margin-left: 1em; margin-right: 1em;"><img border="0" src="http://2.bp.blogspot.com/-FiELT5jQ9lg/VWLyR-3IXXI/AAAAAAAAEqc/I4ayv8jfHYg/s1600/sinkholedpoc.png"></a></div><br><br><pre style="background-image: URL(http://2.bp.blogspot.com/_z5ltvMQPaa8/SjJXr_U2YBI/AAAAAAAAAAM/46OqEP32CJ8/s320/codebg.gif); background: #f0f0f0; border: 1px dashed #CCCCCC; color: black; font-family: arial; font-size: 12px; height: auto; line-height: 20px; overflow: auto; padding: 0px; text-align: left; width: 99%;"><code style="color: black; word-wrap: normal;"> r0x@b0x:~/Desktop$ sudo tcpick -C -yP -r sinkholed_traffic.pcapng | grep wefwavwef= &gt; decode.txt   <br />   <br /> r0x@b0x:~/Desktop$ cat decode.txt   <br /> wefwavwef=3b2cc923a4beb7dfff5e378cdb41626a86c05ef6MDQvMDY%3dAQEFXQAAAQAMJwAICgHA5%2f0%2bAAAFAREZAHMAeQBz  <br /> wefwavwef=6a7dd901c5965c767b69e3eea46c2afa82a12485MDIvMDY%3d%2fCcAOhoIznZkpyGug6wH%2bnE%2bf0ygjpQO3U005JRj  <br /> wefwavwef=f31e92d008b9a49d3047b15b44c627e0b05ffdbfMDYvMDY%3dARUGAQAgAAAAAAA%3d  <br /> wefwavwef=a6b153ee99408406b3a9ac260c809fb74d990bf3MDUvMDY%3dAGkAbgBmAG8ALgB0AHgAdAAAABQKAQDQffjJPZTQ  <br /> wefwavwef=f0a021760a1407e957c080362497f2f726f1b774MDMvMDY%3d5gBiE9NITMr1ItKk%2fiLBAQQGAAEJKwAHCwEAASMD  <br /> wefwavwef=8bc85586c9caafcc26673c98caaf980f57277091MDEvMDY%3dN3q8ryccAAMGi8mhKwAAAAAAAABWAAAAAAAAAGG4  <br />   <br /> r0x@b0x:~/Desktop$ urlencode -d wefwavwef=3b2cc923a4beb7dfff5e378cdb41626a86c05ef6MDQvMDY%3dAQEFXQAAAQAMJwAICgHA5%2f0%2bAAAFAREZAHMAeQBz \  <br /> &gt; wefwavwef=6a7dd901c5965c767b69e3eea46c2afa82a12485MDIvMDY%3d%2fCcAOhoIznZkpyGug6wH%2bnE%2bf0ygjpQO3U005JRj \  <br /> &gt; wefwavwef=f31e92d008b9a49d3047b15b44c627e0b05ffdbfMDYvMDY%3dARUGAQAgAAAAAAA%3d \  <br /> &gt; wefwavwef=a6b153ee99408406b3a9ac260c809fb74d990bf3MDUvMDY%3dAGkAbgBmAG8ALgB0AHgAdAAAABQKAQDQffjJPZTQ \  <br /> &gt; wefwavwef=f0a021760a1407e957c080362497f2f726f1b774MDMvMDY%3d5gBiE9NITMr1ItKk%2fiLBAQQGAAEJKwAHCwEAASMD \  <br /> &gt; wefwavwef=8bc85586c9caafcc26673c98caaf980f57277091MDEvMDY%3dN3q8ryccAAMGi8mhKwAAAAAAAABWAAAAAAAAAGG4 | tr " " "\n" &gt; decode.txt  <br />   <br /> r0x@b0x:~/Desktop$ cat decode.txt | perl -p -e 's/^.*?MD/MDY/' | sort | sed 's/.*MDY=//' | base64 -d &gt; decode.7z  <br />   <br /> r0x@b0x:~/Desktop$ 7z e decode.7z | cat sysinfo.txt | grep flag  <br /> the flag is - worryingwontmakeanybetter  <br /> r0x@b0x:~/Desktop$   <br />   <br />   <br /></code></pre><br>the flag is - <b>worryingwontmakeanybetter</b><br><br>a little bit messy, but it get the job done. Kudos for organizer for awesome and pecah kepala punya soalan. Congratz to team Rempah, aleuto, deyum and all teams that participating. Till next time </div>
+
+	<p class="meta">Posted on <span class="postdate">May 25, 2015</span></p>
+
+</article>
+    </div>
+
+
+
+  </div>
+
+
+
+  <footer id="footer">
+    <p class="copyright">Copyright &copy; 2018 blog.najashark.net. Powered by <a href="http://jekyllrb.com">Jekyll</a>, theme by <a href="http://www.webmaster-source.com">Matt Harzewski</a></p>
+  </footer>
+
+
+
+  <script src="//ajax.googleapis.com/ajax/libs/jquery/1.10.1/jquery.min.js"></script>
+  <script src="/assets/js/jquery.mobilemenu.min.js"></script>
+
+  <script>
+    $(document).ready(function(){
+      $('#sidebar nav ul').mobileMenu({'topOptionText': 'Menu', 'prependTo': '#sidebar nav'});
+    });
+  </script>
+
+
+
+</body>
+</html>

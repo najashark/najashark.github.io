@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html>
+<head>
+
+  <meta charset="UTF-8">
+  <title>[Writeup] Challenge3.exe </title>
+  <meta name="viewport" content="width=device-width">
+
+  <!--[if lt IE 9]>
+    <script src="http://html5shiv.googlecode.com/svn/trunk/html5.js"></script>
+  <![endif]-->
+
+  <link href="/assets/css/style.css" rel="stylesheet" />
+  <link href="/assets/css/colors-dark.css" rel="stylesheet" />
+  <link rel="icon" type="image/png" href="/images/favicon.png">
+
+</head>
+
+<body>
+
+
+
+  <header id="header">
+    <h1><a href="/">blog.najashark.net</a></h1>
+    <p>post-it notes</p>
+  </header>
+
+
+
+  <div id="page">
+
+
+
+    <div id="sidebar">
+      <nav>
+        <ul>
+		  <img class="home-logo" src="/images/favicon.png" alt="logo">
+          <li><a href="/">Home</a></li>
+          <li><a href="/archives">Archive</a></li>
+          <li><a href="/about">About</a></li>
+          <li><a href="http://twitter.com/najashark">Twitter</a></li>
+          <li><a href="/feed.xml">RSS Feed</a></li>
+        </ul>
+      </nav>
+    </div>
+
+
+
+    <div id="content">
+      <article class="post">
+
+	
+		<h1><a href="/2016/03/28/challenge3exe-write-up/">[Writeup] Challenge3.exe </a></h1>
+	
+
+	<div class="post-content">Simple write-up here and some source code for poc<br />&nbsp;The binary is a visual c++ application from PE identifier and not packed with any packer.<br /><br />when open up the file we will see this windows <br /><br /><div class="separator" style="clear: both; text-align: center;"><a href="https://2.bp.blogspot.com/-DWlt-XRmfoQ/Vvgk9kzrIkI/AAAAAAAAEvs/uk9wMjYq8wYMKgxzFV8UFnu9vCe2Znbzw/s1600/1.PNG" imageanchor="1" style="margin-left: 1em; margin-right: 1em;"><img border="0" height="154" src="https://2.bp.blogspot.com/-DWlt-XRmfoQ/Vvgk9kzrIkI/AAAAAAAAEvs/uk9wMjYq8wYMKgxzFV8UFnu9vCe2Znbzw/s320/1.PNG" width="320" /></a></div><br />error message is like this <br /><div class="separator" style="clear: both; text-align: center;"><a href="https://4.bp.blogspot.com/-f2m9MBK98-M/Vvgk_4wQ5dI/AAAAAAAAEvw/kF6fzwXadDcHE-iKWXydH2q6FsquJR6zw/s1600/2.PNG" imageanchor="1" style="margin-left: 1em; margin-right: 1em;"><img border="0" height="168" src="https://4.bp.blogspot.com/-f2m9MBK98-M/Vvgk_4wQ5dI/AAAAAAAAEvw/kF6fzwXadDcHE-iKWXydH2q6FsquJR6zw/s320/2.PNG" width="320" /></a></div><span id="goog_859780595"></span><span id="goog_859780596"></span><br />the algo/logic in assembly with my messed up comment on each line<br /><span id="goog_859780595"></span><span id="goog_859780596"></span><br /><div class="separator" style="clear: both; text-align: center;"><a href="https://4.bp.blogspot.com/-ywh6NMu9cjA/VvgmyJERb-I/AAAAAAAAEv8/Pg0i4x170d8IXc4cbTwbTgmdrmGyzV44A/s1600/3.PNG" imageanchor="1" style="margin-left: 1em; margin-right: 1em;"><img border="0" height="385" src="https://4.bp.blogspot.com/-ywh6NMu9cjA/VvgmyJERb-I/AAAAAAAAEv8/Pg0i4x170d8IXc4cbTwbTgmdrmGyzV44A/s640/3.PNG" width="640" /></a><a href="https://2.bp.blogspot.com/-rhlEnJph47E/Vvgm1Z5ZYlI/AAAAAAAAEwA/AvdBGASz4bwRoYhfOZX2jF4CEWWTvStew/s1600/4.PNG" imageanchor="1" style="margin-left: 1em; margin-right: 1em;"><img border="0" height="209" src="https://2.bp.blogspot.com/-rhlEnJph47E/Vvgm1Z5ZYlI/AAAAAAAAEwA/AvdBGASz4bwRoYhfOZX2jF4CEWWTvStew/s640/4.PNG" width="640" /></a></div><span id="goog_859780595"></span><span id="goog_859780596"></span><br /><span id="goog_859780595">the algo in psuedocode is</span><br /><span id="goog_859780595"><span style="font-family: &quot;courier new&quot; , &quot;courier&quot; , monospace;">//a is input character<br />//value 2108268 in decimal</span></span><br /><span id="goog_859780595"><span style="font-family: &quot;courier new&quot; , &quot;courier&quot; , monospace;"><br />[(a1*2)+(a3*5)+(a5*1)+(a2*3)+(a4*7)+(a6*3)+(a7*7)]*[a1+a2+a3+a4+a5+a6+a7]==2108268</span></span><br /><br /><span style="font-family: &quot;times&quot; , &quot;times new roman&quot; , serif; font-size: small;">WARNING! This is POC only, possible not working is expected.</span><br /><script src="https://gist.github.com/najashark/0bfd2690f99efc7afd2e.js"></script></div>
+
+	<p class="meta">Posted on <span class="postdate">Mar 28, 2016</span></p>
+
+</article>
+    </div>
+
+
+
+  </div>
+
+
+
+  <footer id="footer">
+    <p class="copyright">Copyright &copy; 2018 blog.najashark.net. Powered by <a href="http://jekyllrb.com">Jekyll</a>, theme by <a href="http://www.webmaster-source.com">Matt Harzewski</a></p>
+  </footer>
+
+
+
+  <script src="//ajax.googleapis.com/ajax/libs/jquery/1.10.1/jquery.min.js"></script>
+  <script src="/assets/js/jquery.mobilemenu.min.js"></script>
+
+  <script>
+    $(document).ready(function(){
+      $('#sidebar nav ul').mobileMenu({'topOptionText': 'Menu', 'prependTo': '#sidebar nav'});
+    });
+  </script>
+
+
+
+</body>
+</html>

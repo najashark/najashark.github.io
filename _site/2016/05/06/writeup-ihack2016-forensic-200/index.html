@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html>
+<head>
+
+  <meta charset="UTF-8">
+  <title>[Writeup] iHack2016 - Forensic 200</title>
+  <meta name="viewport" content="width=device-width">
+
+  <!--[if lt IE 9]>
+    <script src="http://html5shiv.googlecode.com/svn/trunk/html5.js"></script>
+  <![endif]-->
+
+  <link href="/assets/css/style.css" rel="stylesheet" />
+  <link href="/assets/css/colors-dark.css" rel="stylesheet" />
+  <link rel="icon" type="image/png" href="/images/favicon.png">
+
+</head>
+
+<body>
+
+
+
+  <header id="header">
+    <h1><a href="/">blog.najashark.net</a></h1>
+    <p>post-it notes</p>
+  </header>
+
+
+
+  <div id="page">
+
+
+
+    <div id="sidebar">
+      <nav>
+        <ul>
+		  <img class="home-logo" src="/images/favicon.png" alt="logo">
+          <li><a href="/">Home</a></li>
+          <li><a href="/archives">Archive</a></li>
+          <li><a href="/about">About</a></li>
+          <li><a href="http://twitter.com/najashark">Twitter</a></li>
+          <li><a href="/feed.xml">RSS Feed</a></li>
+        </ul>
+      </nav>
+    </div>
+
+
+
+    <div id="content">
+      <article class="post">
+
+	
+		<h1><a href="/2016/05/06/writeup-ihack2016-forensic-200/">[Writeup] iHack2016 - Forensic 200</a></h1>
+	
+
+	<div class="post-content">Forensic200<br />Soalan dia kalau tak silap "what is the operating system that mobius used?"<br /><br />masukkan dalam hex editor, check file sig for PNG, find the trailer, and we see another PNG header<br /><div class="separator" style="clear: both; text-align: center;"><a href="https://i.imgur.com/LAoz8Q3.png" imageanchor="1" style="margin-left: 1em; margin-right: 1em;"><img border="0" height="59" src="https://i.imgur.com/LAoz8Q3.png" width="320" /></a></div><br />so copy balik, dapat gambar baru<br /><div class="separator" style="clear: both; text-align: center;"><a href="https://i.imgur.com/6oTI919.png" imageanchor="1" style="margin-left: 1em; margin-right: 1em;"><img border="0" height="320" src="https://i.imgur.com/6oTI919.png" width="320" /></a></div><br />flag:<b>mebius_use_macos</b></div>
+
+	<p class="meta">Posted on <span class="postdate">May 06, 2016</span></p>
+
+</article>
+    </div>
+
+
+
+  </div>
+
+
+
+  <footer id="footer">
+    <p class="copyright">Copyright &copy; 2018 blog.najashark.net. Powered by <a href="http://jekyllrb.com">Jekyll</a>, theme by <a href="http://www.webmaster-source.com">Matt Harzewski</a></p>
+  </footer>
+
+
+
+  <script src="//ajax.googleapis.com/ajax/libs/jquery/1.10.1/jquery.min.js"></script>
+  <script src="/assets/js/jquery.mobilemenu.min.js"></script>
+
+  <script>
+    $(document).ready(function(){
+      $('#sidebar nav ul').mobileMenu({'topOptionText': 'Menu', 'prependTo': '#sidebar nav'});
+    });
+  </script>
+
+
+
+</body>
+</html>

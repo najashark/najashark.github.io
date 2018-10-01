@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html>
+<head>
+
+  <meta charset="UTF-8">
+  <title>RE APK for Fun and Profit</title>
+  <meta name="viewport" content="width=device-width">
+
+  <!--[if lt IE 9]>
+    <script src="http://html5shiv.googlecode.com/svn/trunk/html5.js"></script>
+  <![endif]-->
+
+  <link href="/assets/css/style.css" rel="stylesheet" />
+  <link href="/assets/css/colors-dark.css" rel="stylesheet" />
+  <link rel="icon" type="image/png" href="/images/favicon.png">
+
+</head>
+
+<body>
+
+
+
+  <header id="header">
+    <h1><a href="/">blog.najashark.net</a></h1>
+    <p>post-it notes</p>
+  </header>
+
+
+
+  <div id="page">
+
+
+
+    <div id="sidebar">
+      <nav>
+        <ul>
+		  <img class="home-logo" src="/images/favicon.png" alt="logo">
+          <li><a href="/">Home</a></li>
+          <li><a href="/archives">Archive</a></li>
+          <li><a href="/about">About</a></li>
+          <li><a href="http://twitter.com/najashark">Twitter</a></li>
+          <li><a href="/feed.xml">RSS Feed</a></li>
+        </ul>
+      </nav>
+    </div>
+
+
+
+    <div id="content">
+      <article class="post">
+
+	
+		<h1><a href="/2015/06/15/re-apk-for-fun-and-profit/">RE APK for Fun and Profit</a></h1>
+	
+
+	<div class="post-content">Today i stumbled upon an apk called proxy.apk which is also provided a configuration file that is encrypted. the configuration look like this <b>ALMOST</b> identical to base64<br /><br /><div class="separator" style="clear: both; text-align: center;"><a href="http://4.bp.blogspot.com/-33u8Ai-I4Jw/VX2wIQxMG0I/AAAAAAAAEr4/oQ6y_t2QW1k/s1600/Capture.PNG" imageanchor="1" style="margin-left: 1em; margin-right: 1em;"><img border="0" height="320" src="http://4.bp.blogspot.com/-33u8Ai-I4Jw/VX2wIQxMG0I/AAAAAAAAEr4/oQ6y_t2QW1k/s320/Capture.PNG" width="305" /></a></div><br />So I decompiled the apk using enjarify, which is quite good like an improved version of dex2jar.<br /><br /><span style="font-family: &quot;Courier New&quot;, Courier, monospace;">C:\&gt;enjarify proxy.apk</span><br /><br /><span style="font-family: Times, &quot;Times New Roman&quot;, serif;">but when reading the decompiled dex files, i found out apkprotect.com, this is the cause that enjarify could not decompile apk properly</span><br /><span style="font-family: Times, &quot;Times New Roman&quot;, serif;"><br /></span><div class="separator" style="clear: both; text-align: center;"><span style="font-family: Times, &quot;Times New Roman&quot;, serif;"><a href="http://3.bp.blogspot.com/-4u-8B2g-xTc/VX2q4s7DeyI/AAAAAAAAErY/GILwGZq1yEs/s1600/Capture.PNG" imageanchor="1" style="margin-left: 1em; margin-right: 1em;"><img border="0" src="http://3.bp.blogspot.com/-4u-8B2g-xTc/VX2q4s7DeyI/AAAAAAAAErY/GILwGZq1yEs/s1600/Capture.PNG" /></a></span></div><br />After quick google I found out that the apk is protected using apkprotect which is currently down at this time of writing. Then quick google on how to deobfuscate apkprotect, I found out this blog post <a href="http://kkoha.tistory.com/entry/AntiAPKProtect">Anti_APKProtect</a> <br /><br /><div class="separator" style="clear: both; text-align: center;"><a href="http://2.bp.blogspot.com/-toUlpQZl3Bs/VX2uFllViNI/AAAAAAAAErk/b7XZIBAl8ic/s1600/Capture.PNG" imageanchor="1" style="margin-left: 1em; margin-right: 1em;"><img border="0" height="62" src="http://2.bp.blogspot.com/-toUlpQZl3Bs/VX2uFllViNI/AAAAAAAAErk/b7XZIBAl8ic/s320/Capture.PNG" width="320" /></a></div><span style="font-family: &quot;Courier New&quot;,Courier,monospace;"><br /></span><br /><span style="font-family: Times, &quot;Times New Roman&quot;, serif;">will generate the following files</span><br /><br /><div class="separator" style="clear: both; text-align: center;"><a href="http://2.bp.blogspot.com/-cQh6gKltUMs/VX2ufnBalRI/AAAAAAAAErs/6WasMcEnOsA/s1600/Capture.PNG" imageanchor="1" style="margin-left: 1em; margin-right: 1em;"><img border="0" height="63" src="http://2.bp.blogspot.com/-cQh6gKltUMs/VX2ufnBalRI/AAAAAAAAErs/6WasMcEnOsA/s320/Capture.PNG" width="320" /></a></div><br />Then I analyze the classes_unpack.dex using bytecode viewer. After a while, i found out jsypt is doing the encryption and decryption process on the config file. from the official project state that<br /><blockquote class="tr_bq">Jasypt is a java library which allows the developer to add basic  encryption capabilities to his/her projects with minimum effort, and  without the need of having deep knowledge on how cryptography works.</blockquote>So how I decrypt the config file?<br />The docs page on jasypt website clearly explain how encryption/decryption process works and also provided tools along with it. It clearly stated that the encryption/decryption required a password<br /><br />So lets dive into the apk and find the password<br /><br /><div class="separator" style="clear: both; text-align: center;"><a href="http://2.bp.blogspot.com/-NCsUuCyM_ak/VX2yyt0a36I/AAAAAAAAEsE/jEaVEImWHLU/s1600/Capture.PNG" imageanchor="1" style="margin-left: 1em; margin-right: 1em;"><img border="0" height="45" src="http://2.bp.blogspot.com/-NCsUuCyM_ak/VX2yyt0a36I/AAAAAAAAEsE/jEaVEImWHLU/s320/Capture.PNG" width="320" /></a></div>looks easy enough to find, then lets decrypt all the strings!<br /><div class="separator" style="clear: both; text-align: center;"><a href="http://cdn.meme.am/instances/57902406.jpg" imageanchor="1" style="margin-left: 1em; margin-right: 1em;"><img border="0" src="http://cdn.meme.am/instances/57902406.jpg" height="240" width="320" /></a></div>using the tools provided by jasypt. lets picture do the talking<br /><br /><div class="separator" style="clear: both; text-align: center;"><a href="http://4.bp.blogspot.com/-KXqEjlmbIjE/VX20WIxBhBI/AAAAAAAAEsQ/zf6KAjB0q7A/s1600/Capture.PNG" imageanchor="1" style="margin-left: 1em; margin-right: 1em;"><img border="0" height="320" src="http://4.bp.blogspot.com/-KXqEjlmbIjE/VX20WIxBhBI/AAAAAAAAEsQ/zf6KAjB0q7A/s320/Capture.PNG" width="313" /></a></div><br />so you can see, some ip, port maybe configuration date was create.<br />so thats all, till next time!<br /><br /><br /></div>
+
+	<p class="meta">Posted on <span class="postdate">Jun 15, 2015</span></p>
+
+</article>
+    </div>
+
+
+
+  </div>
+
+
+
+  <footer id="footer">
+    <p class="copyright">Copyright &copy; 2018 blog.najashark.net. Powered by <a href="http://jekyllrb.com">Jekyll</a>, theme by <a href="http://www.webmaster-source.com">Matt Harzewski</a></p>
+  </footer>
+
+
+
+  <script src="//ajax.googleapis.com/ajax/libs/jquery/1.10.1/jquery.min.js"></script>
+  <script src="/assets/js/jquery.mobilemenu.min.js"></script>
+
+  <script>
+    $(document).ready(function(){
+      $('#sidebar nav ul').mobileMenu({'topOptionText': 'Menu', 'prependTo': '#sidebar nav'});
+    });
+  </script>
+
+
+
+</body>
+</html>

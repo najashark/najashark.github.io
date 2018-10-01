@@ -1,0 +1,17 @@
+---
+layout: post
+title: UTPHAX'16 Challenge 9 Write-Up
+date: '2016-10-25T12:08:00.000+08:00'
+author: najashark
+tags:
+- utphax2016
+- utphax
+- crypto
+- ctf
+- utphax16
+modified_time: '2016-10-25T12:14:43.057+08:00'
+blogger_id: tag:blogger.com,1999:blog-8076034119619025020.post-184065572360197707
+blogger_orig_url: http://blog.najashark.net/2016/10/utphax16-challenge-9-write-up.html
+---
+
+I did not screenshot the question but it says<br /><blockquote class="tr_bq">Given $y = md5($x.strrev($x).$x*$x^$x.($x%$x)+9*4/$x)<br />Find $x if $y = 43a87a86ea9aee0255325e2865d6b503</blockquote>also it said something about rockyou which is a dictionary used for cracking password, can download <a href="https://wiki.skullsecurity.org/index.php?title=Passwords">here </a><br /><br />i just used php script that availble on the net and modified the md5() part, here the script<br /><br /><script src="https://gist.github.com/najashark/bd06f5110ea5ce88db0d84267a2aa702.js"></script><span style="font-family: &quot;courier new&quot; , &quot;courier&quot; , monospace; font-size: x-small;">r0x@b0x:~$ php md5.php 43a87a86ea9aee0255325e2865d6b503<br />Match found! 0.00250270100394 = 43a87a86ea9aee0255325e2865d6b503<br />Found in 28.564929008484 seconds</span>

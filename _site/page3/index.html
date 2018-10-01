@@ -1,0 +1,157 @@
+<!DOCTYPE html>
+<html>
+<head>
+
+  <meta charset="UTF-8">
+  <title>blog.najashark.net</title>
+  <meta name="viewport" content="width=device-width">
+
+  <!--[if lt IE 9]>
+    <script src="http://html5shiv.googlecode.com/svn/trunk/html5.js"></script>
+  <![endif]-->
+
+  <link href="/assets/css/style.css" rel="stylesheet" />
+  <link href="/assets/css/colors-dark.css" rel="stylesheet" />
+  <link rel="icon" type="image/png" href="/images/favicon.png">
+
+</head>
+
+<body>
+
+
+
+  <header id="header">
+    <h1><a href="/">blog.najashark.net</a></h1>
+    <p>post-it notes</p>
+  </header>
+
+
+
+  <div id="page">
+
+
+
+    <div id="sidebar">
+      <nav>
+        <ul>
+		  <img class="home-logo" src="/images/favicon.png" alt="logo">
+          <li><a href="/">Home</a></li>
+          <li><a href="/archives">Archive</a></li>
+          <li><a href="/about">About</a></li>
+          <li><a href="http://twitter.com/najashark">Twitter</a></li>
+          <li><a href="/feed.xml">RSS Feed</a></li>
+        </ul>
+      </nav>
+    </div>
+
+
+
+    <div id="content">
+      
+
+	<article class="post">
+
+		
+			<h1><a href="/2016/03/28/challenge3exe-write-up/">[Writeup] Challenge3.exe </a></h1>
+		
+
+		<div class="post-content">Simple write-up here and some source code for poc<br />&nbsp;The binary is a visual c++ application from PE identifier and not packed with any packer.<br /><br />when open up the file we will see this windows <br /><br /><div class="separator" style="clear: both; text-align: center;"><a href="https://2.bp.blogspot.com/-DWlt-XRmfoQ/Vvgk9kzrIkI/AAAAAAAAEvs/uk9wMjYq8wYMKgxzFV8UFnu9vCe2Znbzw/s1600/1.PNG" imageanchor="1" style="margin-left: 1em; margin-right: 1em;"><img border="0" height="154" src="https://2.bp.blogspot.com/-DWlt-XRmfoQ/Vvgk9kzrIkI/AAAAAAAAEvs/uk9wMjYq8wYMKgxzFV8UFnu9vCe2Znbzw/s320/1.PNG" width="320" /></a></div><br />error message is like this <br /><div class="separator" style="clear: both; text-align: center;"><a href="https://4.bp.blogspot.com/-f2m9MBK98-M/Vvgk_4wQ5dI/AAAAAAAAEvw/kF6fzwXadDcHE-iKWXydH2q6FsquJR6zw/s1600/2.PNG" imageanchor="1" style="margin-left: 1em; margin-right: 1em;"><img border="0" height="168" src="https://4.bp.blogspot.com/-f2m9MBK98-M/Vvgk_4wQ5dI/AAAAAAAAEvw/kF6fzwXadDcHE-iKWXydH2q6FsquJR6zw/s320/2.PNG" width="320" /></a></div><span id="goog_859780595"></span><span id="goog_859780596"></span><br />the algo/logic in assembly with my messed up comment on each line<br /><span id="goog_859780595"></span><span id="goog_859780596"></span><br /><div class="separator" style="clear: both; text-align: center;"><a href="https://4.bp.blogspot.com/-ywh6NMu9cjA/VvgmyJERb-I/AAAAAAAAEv8/Pg0i4x170d8IXc4cbTwbTgmdrmGyzV44A/s1600/3.PNG" imageanchor="1" style="margin-left: 1em; margin-right: 1em;"><img border="0" height="385" src="https://4.bp.blogspot.com/-ywh6NMu9cjA/VvgmyJERb-I/AAAAAAAAEv8/Pg0i4x170d8IXc4cbTwbTgmdrmGyzV44A/s640/3.PNG" width="640" /></a><a href="https://2.bp.blogspot.com/-rhlEnJph47E/Vvgm1Z5ZYlI/AAAAAAAAEwA/AvdBGASz4bwRoYhfOZX2jF4CEWWTvStew/s1600/4.PNG" imageanchor="1" style="margin-left: 1em; margin-right: 1em;"><img border="0" height="209" src="https://2.bp.blogspot.com/-rhlEnJph47E/Vvgm1Z5ZYlI/AAAAAAAAEwA/AvdBGASz4bwRoYhfOZX2jF4CEWWTvStew/s640/4.PNG" width="640" /></a></div><span id="goog_859780595"></span><span id="goog_859780596"></span><br /><span id="goog_859780595">the algo in psuedocode is</span><br /><span id="goog_859780595"><span style="font-family: &quot;courier new&quot; , &quot;courier&quot; , monospace;">//a is input character<br />//value 2108268 in decimal</span></span><br /><span id="goog_859780595"><span style="font-family: &quot;courier new&quot; , &quot;courier&quot; , monospace;"><br />[(a1*2)+(a3*5)+(a5*1)+(a2*3)+(a4*7)+(a6*3)+(a7*7)]*[a1+a2+a3+a4+a5+a6+a7]==2108268</span></span><br /><br /><span style="font-family: &quot;times&quot; , &quot;times new roman&quot; , serif; font-size: small;">WARNING! This is POC only, possible not working is expected.</span><br /><script src="https://gist.github.com/najashark/0bfd2690f99efc7afd2e.js"></script></div>
+
+	</article>
+
+
+
+	<article class="post">
+
+		
+			<h1><a href="/2015/08/20/how-to-take-screenshot-of-whole-web/">How to take screenshot of whole web page on firefox</a></h1>
+		
+
+		<div class="post-content">#TIL<br /><br /><div class="separator" style="clear: both; text-align: center;"><a href="http://1.bp.blogspot.com/-6HenxSsFbwE/VdXGINr-DiI/AAAAAAAAEtA/_pPqEPGJOKw/s1600/screenshot-fullpage.PNG" imageanchor="1" style="margin-left: 1em; margin-right: 1em;"><img border="0" src="http://1.bp.blogspot.com/-6HenxSsFbwE/VdXGINr-DiI/AAAAAAAAEtA/_pPqEPGJOKw/s1600/screenshot-fullpage.PNG" /></a></div><br />On firefox just [SHIFT]+[F2]<br /><br />and type<br /><span style="font-family: &quot;Courier New&quot;,Courier,monospace;">screenshot-fullpage</span><br /><br />sos: http://stackoverflow.com/a/16752575 </div>
+
+	</article>
+
+
+
+	<article class="post">
+
+		
+			<h1><a href="/2015/08/14/fix-unable-to-locate-package-linux/">Fix Unable to locate package linux-headers-4.0.0-kali1-amd64 on kali 2.0</a></h1>
+		
+
+		<div class="post-content">After installing Kali on hard disk, i stumbled upon a problem when installing nvidia driver<br /><br />when I try command<br /><br /><span style="font-family: &quot;Courier New&quot;,Courier,monospace;"><span class="kw2">apt-get install</span> <span class="re5">-y</span> linux-headers-$<span class="br0">(</span><span class="kw2">uname</span> -r<span class="br0">)</span></span><br /><br /><span class="br0">it shows package not found</span><br /><br /><span style="font-family: &quot;Courier New&quot;,Courier,monospace;">E: Unable to locate package linux-headers-4.0.0-kali1-amd64</span><br /><br />this problem persist because I have opt out to install from network mirror. So you need to update your /etc/apt/sources.list<br /><br />i found solution when reading this <a href="https://www.offensive-security.com/kali-linux/top-10-post-install-tips/">post install tips</a><br /><br /><blockquote class="tr_bq">If for some reason you chose “<b>no</b>” when asked “<b>use a network mirror</b>” during your Kali installation, you may be missing some entries in your <b>sources.list</b> file. If this is the case, check the <a href="http://docs.kali.org/general-use/kali-linux-sources-list-repositories" rel="nofollow" target="_blank">official repository list</a> for the entries that should be in that file. Despite what many  unofficial guides instruct you to do, avoid adding extra repositories to  your sources.list file. <b>Don’t add kali-dev, kali-rolling, or any other Kali repositories</b> unless you have a specific reason to – which usually, you won’t. If you  *must* add additional repositories, drop a new sources file in <b>/etc/apt/sources.list.d/</b> instead.</blockquote><span style="font-family: inherit;">make sure the lines is in your sources<span style="font-family: inherit;">.lisr</span></span><br /><br /><span style="font-family: &quot;Courier New&quot;,Courier,monospace;">deb-src http:<span class="sy0">//</span>http.kali.org<span class="sy0">/</span>kali sana main non-free contrib<br />deb-src http:<span class="sy0">//</span>security.kali.org<span class="sy0">/</span>kali-security sana<span class="sy0">/</span>updates main contrib non-free</span><br /><span style="font-family: &quot;Courier New&quot;,Courier,monospace;">deb http:<span class="sy0">//</span>http.kali.org<span class="sy0">/</span>kali sana main non-free contrib<br />deb http:<span class="sy0">//</span>security.kali.org<span class="sy0">/</span>kali-security sana<span class="sy0">/</span>updates main contrib non-free&nbsp;</span> <br /><br /><span style="font-family: inherit;">then update your repository</span><br /><br /><span style="font-family: &quot;Courier New&quot;,Courier,monospace;">apt-get update</span><br /><span style="font-family: &quot;Courier New&quot;,Courier,monospace;">apt-get dist-upgrade</span><br /><span style="font-family: inherit;"><br /></span><span style="font-family: inherit;"><span style="font-family: inherit;">now you can install back anything you need.</span> </span><br /><span style="font-family: inherit;"><span style="font-family: inherit;">&nbsp;</span> </span></div>
+
+	</article>
+
+
+
+	<article class="post">
+
+		
+			<h1><a href="/2015/06/15/re-apk-for-fun-and-profit/">RE APK for Fun and Profit</a></h1>
+		
+
+		<div class="post-content">Today i stumbled upon an apk called proxy.apk which is also provided a configuration file that is encrypted. the configuration look like this <b>ALMOST</b> identical to base64<br /><br /><div class="separator" style="clear: both; text-align: center;"><a href="http://4.bp.blogspot.com/-33u8Ai-I4Jw/VX2wIQxMG0I/AAAAAAAAEr4/oQ6y_t2QW1k/s1600/Capture.PNG" imageanchor="1" style="margin-left: 1em; margin-right: 1em;"><img border="0" height="320" src="http://4.bp.blogspot.com/-33u8Ai-I4Jw/VX2wIQxMG0I/AAAAAAAAEr4/oQ6y_t2QW1k/s320/Capture.PNG" width="305" /></a></div><br />So I decompiled the apk using enjarify, which is quite good like an improved version of dex2jar.<br /><br /><span style="font-family: &quot;Courier New&quot;, Courier, monospace;">C:\&gt;enjarify proxy.apk</span><br /><br /><span style="font-family: Times, &quot;Times New Roman&quot;, serif;">but when reading the decompiled dex files, i found out apkprotect.com, this is the cause that enjarify could not decompile apk properly</span><br /><span style="font-family: Times, &quot;Times New Roman&quot;, serif;"><br /></span><div class="separator" style="clear: both; text-align: center;"><span style="font-family: Times, &quot;Times New Roman&quot;, serif;"><a href="http://3.bp.blogspot.com/-4u-8B2g-xTc/VX2q4s7DeyI/AAAAAAAAErY/GILwGZq1yEs/s1600/Capture.PNG" imageanchor="1" style="margin-left: 1em; margin-right: 1em;"><img border="0" src="http://3.bp.blogspot.com/-4u-8B2g-xTc/VX2q4s7DeyI/AAAAAAAAErY/GILwGZq1yEs/s1600/Capture.PNG" /></a></span></div><br />After quick google I found out that the apk is protected using apkprotect which is currently down at this time of writing. Then quick google on how to deobfuscate apkprotect, I found out this blog post <a href="http://kkoha.tistory.com/entry/AntiAPKProtect">Anti_APKProtect</a> <br /><br /><div class="separator" style="clear: both; text-align: center;"><a href="http://2.bp.blogspot.com/-toUlpQZl3Bs/VX2uFllViNI/AAAAAAAAErk/b7XZIBAl8ic/s1600/Capture.PNG" imageanchor="1" style="margin-left: 1em; margin-right: 1em;"><img border="0" height="62" src="http://2.bp.blogspot.com/-toUlpQZl3Bs/VX2uFllViNI/AAAAAAAAErk/b7XZIBAl8ic/s320/Capture.PNG" width="320" /></a></div><span style="font-family: &quot;Courier New&quot;,Courier,monospace;"><br /></span><br /><span style="font-family: Times, &quot;Times New Roman&quot;, serif;">will generate the following files</span><br /><br /><div class="separator" style="clear: both; text-align: center;"><a href="http://2.bp.blogspot.com/-cQh6gKltUMs/VX2ufnBalRI/AAAAAAAAErs/6WasMcEnOsA/s1600/Capture.PNG" imageanchor="1" style="margin-left: 1em; margin-right: 1em;"><img border="0" height="63" src="http://2.bp.blogspot.com/-cQh6gKltUMs/VX2ufnBalRI/AAAAAAAAErs/6WasMcEnOsA/s320/Capture.PNG" width="320" /></a></div><br />Then I analyze the classes_unpack.dex using bytecode viewer. After a while, i found out jsypt is doing the encryption and decryption process on the config file. from the official project state that<br /><blockquote class="tr_bq">Jasypt is a java library which allows the developer to add basic  encryption capabilities to his/her projects with minimum effort, and  without the need of having deep knowledge on how cryptography works.</blockquote>So how I decrypt the config file?<br />The docs page on jasypt website clearly explain how encryption/decryption process works and also provided tools along with it. It clearly stated that the encryption/decryption required a password<br /><br />So lets dive into the apk and find the password<br /><br /><div class="separator" style="clear: both; text-align: center;"><a href="http://2.bp.blogspot.com/-NCsUuCyM_ak/VX2yyt0a36I/AAAAAAAAEsE/jEaVEImWHLU/s1600/Capture.PNG" imageanchor="1" style="margin-left: 1em; margin-right: 1em;"><img border="0" height="45" src="http://2.bp.blogspot.com/-NCsUuCyM_ak/VX2yyt0a36I/AAAAAAAAEsE/jEaVEImWHLU/s320/Capture.PNG" width="320" /></a></div>looks easy enough to find, then lets decrypt all the strings!<br /><div class="separator" style="clear: both; text-align: center;"><a href="http://cdn.meme.am/instances/57902406.jpg" imageanchor="1" style="margin-left: 1em; margin-right: 1em;"><img border="0" src="http://cdn.meme.am/instances/57902406.jpg" height="240" width="320" /></a></div>using the tools provided by jasypt. lets picture do the talking<br /><br /><div class="separator" style="clear: both; text-align: center;"><a href="http://4.bp.blogspot.com/-KXqEjlmbIjE/VX20WIxBhBI/AAAAAAAAEsQ/zf6KAjB0q7A/s1600/Capture.PNG" imageanchor="1" style="margin-left: 1em; margin-right: 1em;"><img border="0" height="320" src="http://4.bp.blogspot.com/-KXqEjlmbIjE/VX20WIxBhBI/AAAAAAAAEsQ/zf6KAjB0q7A/s320/Capture.PNG" width="313" /></a></div><br />so you can see, some ip, port maybe configuration date was create.<br />so thats all, till next time!<br /><br /><br /></div>
+
+	</article>
+
+
+
+	<article class="post">
+
+		
+			<h1><a href="/2015/05/25/wargamesmy-2015-challenge5-sikit-sikit/">Wargames.my 2015 Challenge5 Sikit-sikit lama-lama jadi bukit</a></h1>
+		
+
+		<div class="post-content">On this wargames.my 2015, our team managed to settled only 2 challenged because we were busy with our final exam, no brain left to commit to the competition.<br><br>so lets go with the challenge<br>the hint given is some C&amp;C server address which is <i>blablayadaaofeiwnfvocwvonwec.wargames.my</i><br><br>so we open sinkholed_traffic.pcapng with wireshark and filter the address<br>after a while we managed to find something useful in http header which is<br><span style="font-family: &quot;Courier New&quot;,Courier,monospace;">"wefwavwef="</span><br><br>I am no master in programming, so I utilize the linux tools and shell<br>here the summary of if<br><div class="separator" style="clear: both; text-align: center;"></div><br><div class="separator" style="clear: both; text-align: center;"><a href="http://2.bp.blogspot.com/-FiELT5jQ9lg/VWLyR-3IXXI/AAAAAAAAEqc/I4ayv8jfHYg/s1600/sinkholedpoc.png" imageanchor="1" style="margin-left: 1em; margin-right: 1em;"><img border="0" src="http://2.bp.blogspot.com/-FiELT5jQ9lg/VWLyR-3IXXI/AAAAAAAAEqc/I4ayv8jfHYg/s1600/sinkholedpoc.png"></a></div><br><br><pre style="background-image: URL(http://2.bp.blogspot.com/_z5ltvMQPaa8/SjJXr_U2YBI/AAAAAAAAAAM/46OqEP32CJ8/s320/codebg.gif); background: #f0f0f0; border: 1px dashed #CCCCCC; color: black; font-family: arial; font-size: 12px; height: auto; line-height: 20px; overflow: auto; padding: 0px; text-align: left; width: 99%;"><code style="color: black; word-wrap: normal;"> r0x@b0x:~/Desktop$ sudo tcpick -C -yP -r sinkholed_traffic.pcapng | grep wefwavwef= &gt; decode.txt   <br />   <br /> r0x@b0x:~/Desktop$ cat decode.txt   <br /> wefwavwef=3b2cc923a4beb7dfff5e378cdb41626a86c05ef6MDQvMDY%3dAQEFXQAAAQAMJwAICgHA5%2f0%2bAAAFAREZAHMAeQBz  <br /> wefwavwef=6a7dd901c5965c767b69e3eea46c2afa82a12485MDIvMDY%3d%2fCcAOhoIznZkpyGug6wH%2bnE%2bf0ygjpQO3U005JRj  <br /> wefwavwef=f31e92d008b9a49d3047b15b44c627e0b05ffdbfMDYvMDY%3dARUGAQAgAAAAAAA%3d  <br /> wefwavwef=a6b153ee99408406b3a9ac260c809fb74d990bf3MDUvMDY%3dAGkAbgBmAG8ALgB0AHgAdAAAABQKAQDQffjJPZTQ  <br /> wefwavwef=f0a021760a1407e957c080362497f2f726f1b774MDMvMDY%3d5gBiE9NITMr1ItKk%2fiLBAQQGAAEJKwAHCwEAASMD  <br /> wefwavwef=8bc85586c9caafcc26673c98caaf980f57277091MDEvMDY%3dN3q8ryccAAMGi8mhKwAAAAAAAABWAAAAAAAAAGG4  <br />   <br /> r0x@b0x:~/Desktop$ urlencode -d wefwavwef=3b2cc923a4beb7dfff5e378cdb41626a86c05ef6MDQvMDY%3dAQEFXQAAAQAMJwAICgHA5%2f0%2bAAAFAREZAHMAeQBz \  <br /> &gt; wefwavwef=6a7dd901c5965c767b69e3eea46c2afa82a12485MDIvMDY%3d%2fCcAOhoIznZkpyGug6wH%2bnE%2bf0ygjpQO3U005JRj \  <br /> &gt; wefwavwef=f31e92d008b9a49d3047b15b44c627e0b05ffdbfMDYvMDY%3dARUGAQAgAAAAAAA%3d \  <br /> &gt; wefwavwef=a6b153ee99408406b3a9ac260c809fb74d990bf3MDUvMDY%3dAGkAbgBmAG8ALgB0AHgAdAAAABQKAQDQffjJPZTQ \  <br /> &gt; wefwavwef=f0a021760a1407e957c080362497f2f726f1b774MDMvMDY%3d5gBiE9NITMr1ItKk%2fiLBAQQGAAEJKwAHCwEAASMD \  <br /> &gt; wefwavwef=8bc85586c9caafcc26673c98caaf980f57277091MDEvMDY%3dN3q8ryccAAMGi8mhKwAAAAAAAABWAAAAAAAAAGG4 | tr " " "\n" &gt; decode.txt  <br />   <br /> r0x@b0x:~/Desktop$ cat decode.txt | perl -p -e 's/^.*?MD/MDY/' | sort | sed 's/.*MDY=//' | base64 -d &gt; decode.7z  <br />   <br /> r0x@b0x:~/Desktop$ 7z e decode.7z | cat sysinfo.txt | grep flag  <br /> the flag is - worryingwontmakeanybetter  <br /> r0x@b0x:~/Desktop$   <br />   <br />   <br /></code></pre><br>the flag is - <b>worryingwontmakeanybetter</b><br><br>a little bit messy, but it get the job done. Kudos for organizer for awesome and pecah kepala punya soalan. Congratz to team Rempah, aleuto, deyum and all teams that participating. Till next time </div>
+
+	</article>
+
+
+
+
+
+
+	<div class="postnavigation">
+
+		
+			
+				<a class="prev left" href="/page2/">&larr; Newer</a>
+			
+		
+
+		<span class="pages">Page 3 of 4</span>
+
+		
+			<a class="next right" href="/page4/">Older &rarr;</a>
+		
+
+	</div>
+
+    </div>
+
+
+
+  </div>
+
+
+
+  <footer id="footer">
+    <p class="copyright">Copyright &copy; 2018 blog.najashark.net. Powered by <a href="http://jekyllrb.com">Jekyll</a>, theme by <a href="http://www.webmaster-source.com">Matt Harzewski</a></p>
+  </footer>
+
+
+
+  <script src="//ajax.googleapis.com/ajax/libs/jquery/1.10.1/jquery.min.js"></script>
+  <script src="/assets/js/jquery.mobilemenu.min.js"></script>
+
+  <script>
+    $(document).ready(function(){
+      $('#sidebar nav ul').mobileMenu({'topOptionText': 'Menu', 'prependTo': '#sidebar nav'});
+    });
+  </script>
+
+
+
+</body>
+</html>

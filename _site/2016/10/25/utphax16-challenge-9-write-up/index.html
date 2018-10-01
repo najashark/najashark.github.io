@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html>
+<head>
+
+  <meta charset="UTF-8">
+  <title>UTPHAX'16 Challenge 9 Write-Up</title>
+  <meta name="viewport" content="width=device-width">
+
+  <!--[if lt IE 9]>
+    <script src="http://html5shiv.googlecode.com/svn/trunk/html5.js"></script>
+  <![endif]-->
+
+  <link href="/assets/css/style.css" rel="stylesheet" />
+  <link href="/assets/css/colors-dark.css" rel="stylesheet" />
+  <link rel="icon" type="image/png" href="/images/favicon.png">
+
+</head>
+
+<body>
+
+
+
+  <header id="header">
+    <h1><a href="/">blog.najashark.net</a></h1>
+    <p>post-it notes</p>
+  </header>
+
+
+
+  <div id="page">
+
+
+
+    <div id="sidebar">
+      <nav>
+        <ul>
+		  <img class="home-logo" src="/images/favicon.png" alt="logo">
+          <li><a href="/">Home</a></li>
+          <li><a href="/archives">Archive</a></li>
+          <li><a href="/about">About</a></li>
+          <li><a href="http://twitter.com/najashark">Twitter</a></li>
+          <li><a href="/feed.xml">RSS Feed</a></li>
+        </ul>
+      </nav>
+    </div>
+
+
+
+    <div id="content">
+      <article class="post">
+
+	
+		<h1><a href="/2016/10/25/utphax16-challenge-9-write-up/">UTPHAX'16 Challenge 9 Write-Up</a></h1>
+	
+
+	<div class="post-content">I did not screenshot the question but it says<br /><blockquote class="tr_bq">Given $y = md5($x.strrev($x).$x*$x^$x.($x%$x)+9*4/$x)<br />Find $x if $y = 43a87a86ea9aee0255325e2865d6b503</blockquote>also it said something about rockyou which is a dictionary used for cracking password, can download <a href="https://wiki.skullsecurity.org/index.php?title=Passwords">here </a><br /><br />i just used php script that availble on the net and modified the md5() part, here the script<br /><br /><script src="https://gist.github.com/najashark/bd06f5110ea5ce88db0d84267a2aa702.js"></script><span style="font-family: &quot;courier new&quot; , &quot;courier&quot; , monospace; font-size: x-small;">r0x@b0x:~$ php md5.php 43a87a86ea9aee0255325e2865d6b503<br />Match found! 0.00250270100394 = 43a87a86ea9aee0255325e2865d6b503<br />Found in 28.564929008484 seconds</span></div>
+
+	<p class="meta">Posted on <span class="postdate">Oct 25, 2016</span></p>
+
+</article>
+    </div>
+
+
+
+  </div>
+
+
+
+  <footer id="footer">
+    <p class="copyright">Copyright &copy; 2018 blog.najashark.net. Powered by <a href="http://jekyllrb.com">Jekyll</a>, theme by <a href="http://www.webmaster-source.com">Matt Harzewski</a></p>
+  </footer>
+
+
+
+  <script src="//ajax.googleapis.com/ajax/libs/jquery/1.10.1/jquery.min.js"></script>
+  <script src="/assets/js/jquery.mobilemenu.min.js"></script>
+
+  <script>
+    $(document).ready(function(){
+      $('#sidebar nav ul').mobileMenu({'topOptionText': 'Menu', 'prependTo': '#sidebar nav'});
+    });
+  </script>
+
+
+
+</body>
+</html>
